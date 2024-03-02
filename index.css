@@ -13,7 +13,7 @@
     --bg-color:#111111;
     --second-bg-color:#151515;
     --text-color:white;
-    --main-color:rgb(248, 239,2);
+    --main-color:rgb(2, 248, 2);
 }
 html{
     font-size: 62.5%;
@@ -114,18 +114,19 @@ span{
 .home-img img{
     position: relative;
     top: 3rem;
-    width: 22vw;
-    border-radius: 50%;
+    width: 50vw;
+    border-radius: 10%;
     box-shadow:0 0 25px var(--main-color) ;
     cursor: pointer;
     transition: 0.4s ease-in-out;
 }
 
 .home-img img:hover{
-    box-shadow: 0 0 50px var(--main-color),0 0 100px var(--main-color);
+    box-shadow: 0 0 50px var(--main-color),
+    0 0 100px var(--main-color);
 }
 .home-content p{
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: 500;
     max-width: 1000px;
 }
@@ -172,7 +173,7 @@ box-shadow: 0 0 25px var(--main-color);
 
 .text-animation{
     font-size: 34px;
-    font-weight: 60;
+    font-weight: 600;
     min-width: 280px;
 }
     .text-animation span{
@@ -200,13 +201,22 @@ box-shadow: 0 0 25px var(--main-color);
         }
     }
    @keyframes words{
- 0%,50%{
-    content: 'Web Developer';
- }
-     
-51%,100%{
-content: "Software Tester"
-    }}
+    0%, 25% {
+        content: 'Web Developer';
+    }
+
+    26%, 50% {
+        content: 'Software Tester'; /* Empty content to avoid overlapping */
+    }
+
+    51%, 75% {
+        content: 'Web Developer';
+    }
+
+    76%, 100% {
+        content: 'Software Tester'; /* Empty content to avoid overlapping */
+    }
+}
 
     @keyframes typing{
             10%,
@@ -217,7 +227,8 @@ content: "Software Tester"
             55%,
             70%,
             75%,
-            90%,95%{
+            90%,
+            95%{
             width:0;}
             5%,
             20%,
@@ -228,10 +239,14 @@ content: "Software Tester"
             65%,
             80%,
             85%{
-            width :calc(100%+8px);
+            width :calc(100% + 8px);
             }
     }
-    
+    @media (max-width: 600px) {
+        .text-animation {
+            font-size: 24px; /* Adjust the font size for smaller screens */
+        }
+    }
     .about{
         display: flex;
         justify-content: center;
@@ -244,13 +259,13 @@ content: "Software Tester"
         color: var(--main-color);
         text-shadow:0 0 50px var(--main-color);
         }
-        .about-img{
+        /* .about-img{
         border-radius:50%;}
 
         .about-img img{
         position: relative;
-        width: 32vw;
-        border-radius:50%;
+        width: 60vw;
+        border-radius: 10%;
         box-shadow: 0 0 25px var(--main-color);
         top:1rem;
         cursor: pointer;
@@ -259,7 +274,9 @@ content: "Software Tester"
 
         .about-img img:hover{
             box-shadow: 0 0 50px var(--main-color),
-            0 0 100px var(--main-color);}
+            0 0 100px var(--main-color);
+        } */
+
             .heading{
             text-align: center;
             font-size: 8rem;}
@@ -268,8 +285,11 @@ content: "Software Tester"
             text-align: left;
             line-height : 1.5;
             }
-            .about-content p{
+            .about-content h3{
             font-size: 2.6rem;
+            }
+            .about-content p{
+            font-size: 4rem;
                 margin: 2rem 0 3rem;
         }
         .about-content.text-animation span::before{
@@ -283,10 +303,12 @@ content: "Software Tester"
             position: absolute;
             width: calc(100% + 8px);
             height: 100%;
-            border-left: 3px solid var(--bg-color);
+            border-left: 3px solid var(--second-bg-color);
             right: -8px;
             animation: cursor 0.6s infinite,typing 20s steps(14) infinite;
             }
+
+            
             ::-webkit-scrollbar{
                 width: 15px;
             }
@@ -344,6 +366,9 @@ content: "Software Tester"
                 margin-bottom: 1rem;
                }  
 
+            .service-info li{
+                font-size: 2rem;
+            }
             .service-info p{
                 font-size: 1.6rem;
                 font-weight: 40;
@@ -411,7 +436,7 @@ margin: 10px;
 transition: 0.3s ease-in-out;
 }
 
-.footer.social a:hover{
+.footer .social a:hover{
     transform: scale(1.2)translateY(-10px);
     background-color: var(--main-color);
     color: var(--text-color);
